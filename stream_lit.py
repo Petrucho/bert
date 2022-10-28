@@ -8,7 +8,12 @@ import asyncio
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-
+title = st.text_input('What do you think about film', 'Nice move')
+text = nlp_lr.common_func(title)
+if text == 'positive':
+    st.success(f'The comment is {text}', icon="✅")
+else:
+    st.error(f'The comment is {text}', icon="🚨")
 
 # this part of code needed in Streamlit - never the mind whatever it's mean
 def get_or_create_eventloop():
